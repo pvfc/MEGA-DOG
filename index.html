@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Virtual</title>
+    <style>
+
+               /*imagem principal  */
+        img {                    
+            display: block;
+            margin-left: auto;
+             margin-right: auto;
+            width: 100%;
+            height: 540px;
+            
+        
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #030303;
+            color: #e2d3d3fb;
+            padding: 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        h4 {
+            
+            color: #000000;
+            text-align: center;
+        }
+
+        .menu-section {
+            padding: 20px;
+        }
+
+        .menu-section h2 {
+            border-bottom: 2px solid #070707;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .menu-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+
+        .carousel {
+            position: relative;
+            width: 30%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        
+    </style>
+</head>
+<div class="center">
+    
+    <img src="imag/pexels-photo-5550300.webp">
+  
+</div>
+<body>
+   
+
+<header>
+    <h1>CARDÁPIO DO MEGA DOG</h1>
+
+    
+</header>
+
+<div class="menu-section">
+    <h2>DOG</h2>
+
+    <div class="menu-item">
+        <div>
+            <h3>Dog </h3>
+            <p>Alface , molho, </p>
+        </div>
+        <div class="price">R$ 25,00</div>
+    </div>
+
+    <div class="menu-item">
+        <div>
+            <h3>Dog  </h3>
+            <p>batata, farinha </p>
+        </div>
+        <div class="price">R$ 20,00</div>
+    </div>
+</div>
+
+<div class="menu-section">
+    <h2>BEBIDAS</h2>
+
+    <div class="menu-item">
+        <div>
+            <h3>Coca Cola </h3>
+            <p> lata 350ml</p>
+        </div>
+        <div class="price">R$ 5,00</div>
+    </div>
+
+    <div class="menu-item">
+        <div>
+            <h3>Fanta Laraja</h3>
+            <p>lata 350ml</p>
+        </div>
+        <div class="price">R$ 4,00</div>
+    </div>
+</div>
+
+<div class="menu-section">
+    <h2>SOBREMESAS</h2>
+
+    <div class="menu-item">
+        <div>
+            <h3>Bolo de Leite</h3>
+            <p>fatia</p>
+        </div>
+        <div class="price">R$ 7,00</div>
+    </div>
+
+    <div class="menu-item">
+        <div>
+            <h3>Sorvetes</h3>
+            <p>chocalate , leite,etc..</p>
+        </div>
+        <div class="price">R$ 4,00</div>
+    </div>
+
+    <h4>BEBIDAS COM OS MELHORES PREÇOS !</h4>
+
+</div>
+ 
+
+<div class="carousel">
+                     
+    <div class="carousel-images" id="carouselImages">
+        <img src="imag/download1.jpeg" alt="Primeira Imagem">
+        <img src="imag/download2.jpeg" alt="Segunda Imagem">
+        <img src="imag/download3.jpeg" alt="Terceira Imagem">
+        <img src="imag/download4.jpeg" alt="Terceira Imagem">
+        <img src="imag/download5.jpeg" alt="Terceira Imagem">
+        <img src="imag/download6.jpeg" alt="Terceira Imagem">
+    </div>
+    <div class="carousel-controls">
+        <button class="carousel-control" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-control" onclick="nextSlide()">&#10095;</button>
+    </div>
+</div>
+
+
+<script>
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        const carouselImages = document.getElementById('carouselImages');
+        const totalImages = carouselImages.children.length;
+        if (index >= totalImages) currentIndex = 0;
+        if (index < 0) currentIndex = totalImages - 1;
+        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex++;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex--;
+        showSlide(currentIndex);
+    }
+</script>
+
+
+
+<footer>
+    <p>&copy; 2024 Mega Dog. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
